@@ -1,1 +1,1 @@
-web: gunicorn Kickcard.wsgi
+web: python manage.py collectstatic --noinput && gunicorn Kickcard.wsgi
