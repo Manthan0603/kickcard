@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .w3l-dashboard {
+        background: #f4f7f6;
+        padding: 60px 0;
+        min-height: 80vh;
+    }
+    .dash-box {
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    .dash-title {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #222;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .dash-title:after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 5px;
+        background: #00d2ff;
+        margin: 15px auto;
+        border-radius: 5px;
+    }
+    .stat-card {
+        background: #fff;
+        border-radius: 15px;
+        padding: 25px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid #eee;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .stat-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 188, 212, 0.15);
+        border-color: #00bcd4;
+    }
+    .stat-icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(0, 188, 212, 0.1);
+        color: #00bcd4;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    .stat-label {
+        font-weight: 700;
+        color: #666;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+    }
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #222;
+    }
+    .booking-section {
+        margin-top: 50px;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        border: 2px dashed #ddd;
+        text-align: center;
+    }
+    .btn-custom {
+        padding: 12px 40px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.3s;
+    }
+    .form-check-label {
+        font-weight: 600;
+        color: #444;
+        margin-left: 10px;
+    }
+    .form-check-input {
+        width: 1.2rem;
+        height: 1.2rem;
+        margin-top: 0.2rem;
+    }
+    /* Hide Footer */
+    .w3l-footer-29-main {
+        display: none !important;
+    }
+</style>
+
+<section class="w3l-contact-breadcrum">
+    <div class="breadcrum-bg">
+        <div class="container py-5">
+            <p><a href="{% url 'index' %}">Home</a> &nbsp; / &nbsp; Dashboard</p>
+            <h2 class="my-3">Member Dashboard</h2>
+        </div>
+    </div>
+</section>
+
+<section class="w3l-dashboard">
+    <div class="container">
+        <div class="dash-box">
+            <h1 class="dash-title">Available Units</h1>
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <span class="fa fa-leaf"></span>
+                        </div>
+                        <div class="stat-label">Grain</div>
+                        <div class="stat-value">{{ grain }} kg</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <span class="fa fa-shopping-basket"></span>
+                        </div>
+                        <div class="stat-label">Rice</div>
+                        <div class="stat-value">{{ rice }} kg</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <span class="fa fa-tint"></span>
+                        </div>
+                        <div class="stat-label">Kerosene</div>
+                        <div class="stat-value">{{ kero }} ltr</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-4">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <span class="fa fa-cutlery"></span>
+                        </div>
+                        <div class="stat-label">Toor Dal</div>
+                        <div class="stat-value">{{ toor }} kg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-section">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-4 d-inline-block text-left">
+                        {{ form }}
+                    </div>
+                    <p id="check" hidden>{{ check }}</p>
+                    <div class="btn-group-area">
+                        <button type="submit" class="btn btn-secondary btn-theme2 btn-custom mx-2" id="submit">Book Kick Now</button>
+                        <a href="{% url 'index' %}" class="btn btn-outline-dark btn-custom mx-2">Back to Home</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#submit").click(function(e) {
+            var ele = $("#check").text();
+            if (ele == "1") {
+                // SweetAlert would be better here, but I'll keep the logic consistent
+                swal("Success!", "Your Kick has been booked. Please! Collect it from your Branch.", "success");
+            } else {
+                swal("Info", "You had purchased your ration already. Check it next month.", "info");
+            }
+        });
+    });
+</script>
+{% endblock %}

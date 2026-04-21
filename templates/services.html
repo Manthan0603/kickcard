@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .w3l-service-hero {
+        background: url('/static/images/new.jpg') no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+        padding: 80px 0;
+        color: #fff;
+    }
+
+    .w3l-service-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .w3l-service-hero .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .service-card {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+        border: 1px solid #eee;
+        height: 100%;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 188, 212, 0.15);
+    }
+
+    .service-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: 0.5s;
+    }
+
+    .service-card:hover img {
+        transform: scale(1.1);
+    }
+
+    .service-info {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .service-info h3 {
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #222;
+        font-size: 1.3rem;
+    }
+
+    .service-info p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #666;
+    }
+
+    .step-card {
+        background: #fff;
+        padding: 40px 30px;
+        border-radius: 20px;
+        text-align: center;
+        border: 1px solid #eee;
+        transition: 0.3s;
+        height: 100%;
+        position: relative;
+    }
+
+    .step-card:hover {
+        background: #00bcd4;
+        color: #fff;
+        border-color: #00bcd4;
+    }
+
+    .step-card .step-number {
+        font-size: 3rem;
+        font-weight: 900;
+        color: rgba(0, 188, 212, 0.2);
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        transition: 0.3s;
+    }
+
+    .step-card:hover .step-number {
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .step-card h4 {
+        font-weight: 800;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .step-card p {
+        font-size: 0.95rem;
+        opacity: 0.8;
+        position: relative;
+        z-index: 1;
+    }
+
+    .section-title-main {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 40px;
+    }
+
+    .accent-line {
+        width: 60px;
+        height: 5px;
+        background: #00bcd4;
+        margin: 15px auto 40px;
+        border-radius: 5px;
+    }
+</style>
+
+<section class="w3l-service-hero">
+    <div class="container py-lg-5 text-left">
+        <p class="mb-2"><a href="{% url 'index' %}" class="text-white">Home</a> &nbsp; / &nbsp; Services</p>
+        <h2 class="section-title-main">Our Specialized Services</h2>
+        <p style="max-width: 700px; font-size: 1.1rem; line-height: 1.8; opacity: 0.9; margin-left: 0;">
+            We offer comprehensive digital solutions for modern ration management, ensuring food security 
+            through efficiency and innovation.
+        </p>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container py-lg-5">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <img src="{% static 'assets/images/g10.jpg' %}" alt="Service">
+                    <div class="service-info">
+                        <h3>Grain Marketing</h3>
+                        <p>Providing a platform for quality grains with transparent pricing and efficient distribution
+                            channels.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <img src="{% static 'assets/images/g11.jpg' %}" alt="Service">
+                    <div class="service-info">
+                        <h3>Feed Solutions</h3>
+                        <p>Optimized logistics and storage for various feed commodities to prevent waste and ensure
+                            freshness.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <img src="{% static 'assets/images/g12.jpg' %}" alt="Service">
+                    <div class="service-info">
+                        <h3>Risk Management</h3>
+                        <p>Advanced data monitoring to manage allocation risks and ensure uninterrupted supply chains.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <img src="{% static 'assets/images/g13.jpg' %}" alt="Service">
+                    <div class="service-info">
+                        <h3>Advisory Services</h3>
+                        <p>Expert consultation on ration policies and digital integration for local distribution
+                            branches.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <img src="{% static 'assets/images/g14.jpg' %}" alt="Service">
+                    <div class="service-info">
+                        <h3>Grain Contracts</h3>
+                        <p>Secure digital contracting for vendors and shops to streamline the procurement process.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="service-card">
+                    <img src="{% static 'assets/images/g8.jpg' %}" alt="Service">
+                    <div class="service-info">
+                        <h3>Farm Supplies</h3>
+                        <p>Integrated supply chain for essential farm inputs to support local agricultural ecosystems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container py-lg-5">
+        <div class="text-center">
+            <h3 class="section-title-main" style="margin-bottom: 10px;">Our Working Process</h3>
+            <div class="accent-line"></div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="step-card">
+                    <span class="step-number">01</span>
+                    <h4>Secure Account</h4>
+                    <p>Create a verified member account using your unique credentials.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="step-card">
+                    <span class="step-number">02</span>
+                    <h4>Link KickCard</h4>
+                    <p>Register your ration card details onto our digital platform easily.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="step-card">
+                    <span class="step-number">03</span>
+                    <h4>Book Online</h4>
+                    <p>Reserve your allocation directly from your personal dashboard.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 mb-4">
+                <div class="step-card">
+                    <span class="step-number">04</span>
+                    <h4>Swift Collection</h4>
+                    <p>Pick up your allocated goods from the nearest certified shop.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

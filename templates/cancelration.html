@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .w3l-cancel-card {
+        background: url('/static/images/new.jpg') no-repeat center center fixed;
+        background-size: cover;
+        padding: 100px 0;
+        position: relative;
+        min-height: 80vh;
+    }
+    .w3l-cancel-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+    }
+    .cancel-box {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        position: relative;
+        z-index: 1;
+        text-align: center;
+    }
+    .cancel-title {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: #d9534f;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+    .cancel-subtitle {
+        color: #666;
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+    .form-control {
+        border-radius: 12px !important;
+        padding: 15px 20px !important;
+        border: 2px solid #eee !important;
+        transition: 0.3s;
+        text-align: left;
+    }
+    .form-control:focus {
+        border-color: #d9534f !important;
+        box-shadow: 0 0 15px rgba(217, 83, 79, 0.1) !important;
+    }
+    .btn-submit-group {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    .btn-custom {
+        padding: 12px 40px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.3s;
+    }
+    /* Hide Footer */
+    .w3l-footer-29-main {
+        display: none !important;
+    }
+</style>
+
+<section class="w3l-contact-breadcrum">
+    <div class="breadcrum-bg">
+        <div class="container py-5">
+            <p><a href="{% url 'index' %}">Home</a> &nbsp; / &nbsp; Management</p>
+            <h2 class="my-3">Cancellation</h2>
+        </div>
+    </div>
+</section>
+
+<section class="w3l-cancel-card">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="cancel-box">
+                    <h1 class="cancel-title">Cancel Kick Card</h1>
+                    <p class="cancel-subtitle">Please submit your request from here to deactivate your card records.</p>
+                    
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group text-left mb-4">
+                            {{ form }}
+                        </div>
+
+                        <div class="btn-submit-group">
+                            <button type="submit" class="btn btn-danger btn-custom" style="background: #d9534f; border: none;">Submit Request</button>
+                            <a href="{% url 'index' %}" class="btn btn-outline-dark btn-custom">Back to Home</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function() {
+        $('input, select, textarea').addClass('form-control');
+    });
+</script>
+{% endblock %}

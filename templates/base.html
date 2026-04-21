@@ -1,0 +1,490 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Home</title>
+  <!-- web fonts -->
+  <!-- web fonts -->
+  <link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+  <!-- //web fonts -->
+  <!-- //web fonts -->
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/style-starter.css' %}">
+</head>
+
+<body>
+
+
+  <!-- Top Menu 1 -->
+  <section class="w3l-top-menu-1">
+    <div class="top-hd">
+      <div class="container">
+        <header class="row top-menu-top">
+          <div class="accounts col-md-9 col-6">
+            <li class="top_li"><span class="fa fa-phone"></span><a href="tel:9876543210">+91 9876543210</a> </li>
+            <li class="top_li1"><span class="fa fa-envelope-o"></span> <a href="mailto:ration@govt.co.in" class="mail">
+                ration@govt.co.in</a> </li>
+          </div>
+          <div class="social-top col-md-3 col-6">
+            <div class="main-social-head">
+              <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+              <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+              <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+            </div>
+          </div>
+        </header>
+      </div>
+    </div>
+  </section>
+  <!-- //Top Menu 1 -->
+  <style>
+      :root {
+          --vibrant-cyan: #00bcd4;
+          --nav-bg: rgba(255, 255, 255, 0.95);
+      }
+      /* PREMIUM NAVBAR STYLES */
+      .w3l-bootstrap-header {
+          background: var(--nav-bg);
+          backdrop-filter: blur(10px);
+          position: sticky;
+          top: 0;
+          z-index: 1000;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+          transition: 0.4s;
+      }
+      .navbar-brand {
+          font-weight: 900 !important;
+          font-size: 28px !important;
+          color: #111 !important;
+          letter-spacing: -1px;
+      }
+      .navbar-brand span {
+          color: var(--vibrant-cyan);
+          position: relative;
+      }
+      .navbar-brand span:after {
+          content: '';
+          position: absolute;
+          bottom: 2px;
+          left: 0;
+          width: 100%;
+          height: 8px;
+          background: rgba(0, 188, 212, 0.15);
+          z-index: -1;
+      }
+      
+      .nav-link {
+          font-weight: 700 !important;
+          color: #444 !important;
+          margin: 0 12px;
+          position: relative;
+          padding: 8px 0 !important;
+          font-size: 15px;
+          transition: 0.3s;
+      }
+      /* Animated Underline */
+      .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: var(--vibrant-cyan);
+          transition: 0.3s;
+      }
+      .nav-link:hover::after, .nav-item.active .nav-link::after {
+          width: 100%;
+      }
+      .nav-link:hover {
+          color: var(--vibrant-cyan) !important;
+      }
+
+      /* MODERN DROPDOWN */
+      .dropdown-menu {
+          border: none;
+          box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+          border-radius: 12px;
+          padding: 10px;
+          margin-top: 15px !important;
+          animation: slideUpNav 0.3s ease-out;
+      }
+      @keyframes slideUpNav {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+      .dropdown-item {
+          font-weight: 600;
+          padding: 10px 20px;
+          border-radius: 8px;
+          transition: 0.3s;
+          color: #555;
+      }
+      .dropdown-item:hover {
+          background: rgba(0, 188, 212, 0.05);
+          color: var(--vibrant-cyan);
+          padding-left: 25px;
+      }
+      .dropdown-divider { border-color: #eee; }
+
+      .profile-nav-text {
+          color: #111;
+          font-weight: 800;
+          background: rgba(0, 188, 212, 0.1);
+          padding: 5px 15px;
+          border-radius: 20px;
+      }
+  </style>
+
+  <section class="w3l-bootstrap-header">
+    <nav class="navbar navbar-expand-lg navbar-light py-lg-3 py-2">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}"><span>Kick</span>Card</a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+          <span class="fa fa-bars" style="color:var(--vibrant-cyan); font-size: 24px;"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'services' %}">Services</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="kickDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Kick Card
+                </a>
+                <div class="dropdown-menu" aria-labelledby="kickDropdown">
+                  <a class="dropdown-item" href="{% url 'AddRationCard' %}">Add New Card</a>
+                  {% if user.user.id %}
+                  <a class="dropdown-item" href="{% url 'update' user.user.id %}">Update Details</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'cancel' %}" style="color: #ff4d4d;">Cancel Card</a>
+                  {% else %}
+                  <a class="dropdown-item" href="#">Update Details</a>
+                  <a class="dropdown-item" href="#">Cancel Card</a>
+                  {% endif %}
+                </div>
+            </li>
+          </ul>
+          
+          <ul class="navbar-nav ml-auto align-items-center">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle profile-nav-text" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="fa fa-user-circle mr-1" style="color:var(--vibrant-cyan)"></span> {{ profile }}
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="{% url 'dashboard'%}"><span class="fa fa-dashboard mr-2"></span> Dashboard</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'logout' %}" style="color: #ff4d4d;"><span class="fa fa-sign-out mr-2"></span> Logout</a>
+                </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  {% block content %}
+  {% endblock %}
+
+  <style>
+    :root {
+      --vibrant-cyan: #00bcd4;
+    }
+
+    /* LUXURY MODERN FOOTER STYLES */
+    .w3l-footer-29-main {
+      background: #111;
+      color: #fff;
+      padding: 80px 0 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .footer-top-29 {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 50px;
+    }
+
+    .footer-title-29 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 30px;
+      color: #fff;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-title-29:after {
+      content: '';
+      display: block;
+      width: 45px;
+      height: 4px;
+      background: var(--vibrant-cyan);
+      margin-top: 12px;
+      border-radius: 2px;
+    }
+
+    .footer-list-29 ul {
+      padding: 0 !important;
+      margin: 0 !important;
+      list-style: none !important;
+    }
+
+    .footer-list-29 ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-list-29 ul li a {
+      color: #999 !important;
+      transition: 0.3s;
+      font-size: 15px;
+      text-decoration: none !important;
+    }
+
+    .footer-list-29 ul li a:hover {
+      color: var(--vibrant-cyan) !important;
+      padding-left: 8px;
+    }
+
+    .social-footer-29 a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-right: 12px;
+      transition: 0.3s;
+      color: #fff !important;
+      text-decoration: none !important;
+    }
+
+    .social-footer-29 a:hover {
+      background: var(--vibrant-cyan);
+      transform: translateY(-5px);
+    }
+
+    .subscribe-box-29 {
+      display: flex;
+      margin-top: 25px;
+    }
+
+    .subscribe-box-29 input {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 30px 0 0 30px;
+      width: 100%;
+      outline: none;
+    }
+
+    .subscribe-box-29 button {
+      background: var(--vibrant-cyan);
+      border: none;
+      color: #fff;
+      border-radius: 0 30px 30px 0;
+      padding: 0 25px;
+      cursor: pointer;
+    }
+
+    .footer-bottom-29 {
+      padding: 30px 0;
+      text-align: center;
+      background: #0a0a0a;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .footer-bottom-29 p {
+      margin-bottom: 0;
+      color: #666;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-bottom-29 a {
+      color: var(--vibrant-cyan);
+      font-weight: 700;
+      text-decoration: none;
+    }
+  </style>
+
+  <section class="w3l-footer-29-main">
+    <div class="footer-29 py-5">
+      <div class="container">
+        <div class="row footer-top-29">
+          <div class="col-lg-4 col-md-6 footer-list-29 footer-1 mb-lg-0 mb-5">
+            <h6 class="footer-title-29">About Platform</h6>
+            <p style="color: #888; line-height: 1.8; margin-bottom: 25px;">
+              Revolutionizing ration distribution through secure digital identity
+              and transparent allocation systems. Focused on community welfare
+              and technological excellence.
+            </p>
+            <div class="social-footer-29">
+              <a href="#facebook" class="facebook"><span class="fa fa-facebook"></span></a>
+              <a href="#twitter" class="twitter"><span class="fa fa-twitter"></span></a>
+              <a href="#instagram" class="instagram"><span class="fa fa-instagram"></span></a>
+              <a href="#linkedin" class="linkedin"><span class="fa fa-linkedin"></span></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-list-29 footer-2 mb-lg-0 mb-5 pl-lg-5">
+            <h6 class="footer-title-29">Explore</h6>
+            <ul>
+              <li><a href="{%url 'index' %}">Home Portal</a></li>
+              <li><a href="{%url 'about' %}">About Us</a></li>
+              <li><a href="{%url 'services' %}">Our Services</a></li>
+              <li><a href="{%url 'contact' %}">Support Desk</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-list-29 footer-3 mb-lg-0 mb-5 pl-lg-5">
+            <h6 class="footer-title-29">Management</h6>
+            <ul>
+              <li><a href="{% url 'AddRationCard' %}">Register Card</a></li>
+              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+              <li><a href="{% url 'login' %}">Portal Access</a></li>
+              <li><a href="{% url 'signup' %}">Member Signup</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-list-29 footer-4">
+            <h6 class="footer-title-29">Stay Updated</h6>
+            <p style="color: #888; font-size: 14px; margin-bottom: 20px;">Stay informed about ration availability and
+              branch updates.</p>
+            <form action="#" class="subscribe-box-29">
+              <input type="email" placeholder="Email Address" required="">
+              <button><span class="fa fa-paper-plane"></span></button>
+            </form>
+            <div class="mt-4 pt-2">
+              <p style="color: #fff; font-size: 16px; font-weight: 700;"><span class="fa fa-phone mr-2"
+                  style="color:var(--vibrant-cyan)"></span> 9876543210</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-29">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-md-left text-center mb-md-0 mb-3">
+            <p>© 2026 Kick Card Platform. All rights reserved.</p>
+          </div>
+          <div class="col-md-6 text-md-right text-center">
+            <p>Designed with <span class="fa fa-heart" style="color:#ff4d4d"></span> by <a href="#manthan">Manthan
+                Mangaroliya</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top"
+      style="position:fixed; bottom:30px; right:30px; width:45px; height:45px; background:var(--vibrant-cyan); color:#fff; border:none; border-radius:50%; display:none; z-index:9999; box-shadow:0 5px 15px rgba(0,0,0,0.3);">
+      <span class="fa fa-angle-up"></span>
+    </button>
+    <script>
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction()
+      };
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("movetop").style.display = "block";
+        } else {
+          document.getElementById("movetop").style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    </script>
+    <!-- /move top -->
+  </section>
+  <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+  <!-- //footer-28 block -->
+  </section>
+  <script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+  <!-- Template JavaScript -->
+  <script src="{% static 'assets/js/all.js' %}"></script>
+  <!-- Smooth scrolling -->
+  <!-- <script src="assets/js/smoothscroll.js"></script> -->
+  <script src="{% static 'assets/js/owl.carousel.js' %}"></script>
+
+  <!-- script for -->
+  <script>
+    $(document).ready(function () {
+      $('.owl-one').owlCarousel({
+        loop: true,
+        margin: 0,
+        nav: true,
+        responsiveClass: true,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        autoplaySpeed: 1000,
+        autoplayHoverPause: false,
+        responsive: {
+          0: {
+            items: 1,
+            nav: false
+          },
+          480: {
+            items: 1,
+            nav: false
+          },
+          667: {
+            items: 1,
+            nav: true
+          },
+          1000: {
+            items: 1,
+            nav: true
+          }
+        }
+      })
+    })
+  </script>
+  <!-- //script -->
+
+</body>
+
+</html>

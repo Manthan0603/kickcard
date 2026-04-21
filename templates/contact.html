@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .w3l-contact-hero {
+        background: url('/static/images/new.jpg') no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+        padding: 80px 0;
+        color: #fff;
+    }
+    .w3l-contact-hero::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    .w3l-contact-hero .container {
+        position: relative;
+        z-index: 1;
+    }
+    .contact-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        height: 100%;
+        border: 1px solid #eee;
+    }
+    .section-title-main {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+    }
+    .info-box {
+        background: #00bcd4;
+        padding: 30px;
+        border-radius: 15px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        margin-bottom: 25px;
+        box-shadow: 0 10px 25px rgba(0, 188, 212, 0.15);
+    }
+    .info-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 188, 212, 0.3);
+    }
+    .info-box span.fa {
+        width: 50px;
+        height: 50px;
+        background: #fff;
+        color: #00bcd4;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        margin-right: 20px;
+        flex-shrink: 0;
+    }
+    .info-box a {
+        color: #fff !important;
+        font-weight: 600;
+        text-decoration: none;
+        display: block;
+    }
+    .main-input input, .main-input textarea {
+        border-radius: 12px !important;
+        padding: 15px 20px !important;
+        border: 2px solid #f0f0f0 !important;
+        margin-bottom: 20px;
+        transition: 0.3s;
+        font-size: 1rem;
+    }
+    .main-input input:focus, .main-input textarea:focus {
+        border-color: #00bcd4 !important;
+        box-shadow: 0 0 12px rgba(0, 188, 212, 0.15) !important;
+    }
+</style>
+
+<section class="w3l-contact-hero">
+    <div class="container py-lg-5">
+        <p class="mb-2"><a href="{% url 'index' %}" class="text-white">Home</a> &nbsp; / &nbsp; Contact</p>
+        <h2 class="section-title-main">Get In Touch</h2>
+        <p style="max-width: 600px; font-size: 1.1rem; line-height: 1.8; opacity: 0.9;">
+            Have questions about your Kick Card or ration allocation? We're here to help you navigate our digital system.
+        </p>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container py-lg-5">
+        <div class="row">
+            <div class="col-lg-5 mb-lg-0 mb-5">
+                <h3 class="mb-4" style="font-weight: 700; color: #222;">Contact Information</h3>
+                <div class="info-box">
+                    <span class="fa fa-phone"></span>
+                    <div class="info-content">
+                        <small style="opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Call Us</small>
+                        <a href="tel:9876543210">9876543210</a>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <span class="fa fa-envelope"></span>
+                    <div class="info-content">
+                        <small style="opacity: 0.8; text-transform: uppercase; letter-spacing: 1px;">Email Us</small>
+                        <a href="mailto:ration@govt.co.in">ration@govt.co.in</a>
+                        <a href="mailto:m.mangroliya0603@gmail.com">m.mangroliya0603@gmail.com</a>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <h5 class="mb-3" style="font-weight: 700;">Follow Us</h5>
+                    <div class="main-social-footer-29">
+                        <a href="#facebook" class="facebook" style="color: #3b5998; font-size: 1.5rem; margin-right: 20px;"><span class="fa fa-facebook"></span></a>
+                        <a href="#twitter" class="twitter" style="color: #1da1f2; font-size: 1.5rem; margin-right: 20px;"><span class="fa fa-twitter"></span></a>
+                        <a href="#instagram" class="instagram" style="color: #e1306c; font-size: 1.5rem;"><span class="fa fa-instagram"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="contact-card">
+                    <h3 class="mb-4" style="font-weight: 700; color: #222;">Send a Message</h3>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="main-input">
+                            {{ form }}
+                        </div>
+                        <div class="text-right">
+                            <button class="btn btn-secondary btn-theme2" style="padding: 15px 40px;">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

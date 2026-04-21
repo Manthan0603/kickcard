@@ -1,0 +1,692 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- banner slider start -->
+
+<style>
+	/* PREMIUM SLIDER STYLES */
+	.owl-one .owl-item.active .banner-info-bg h5 {
+		animation: fadeInUpSlider 0.8s ease-out both;
+		font-weight: 900;
+		text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+	}
+
+	.owl-one .owl-item.active .btn-theme2 {
+		animation: fadeInUpSlider 0.8s ease-out 0.3s both;
+	}
+
+	@keyframes fadeInUpSlider {
+		from {
+			opacity: 0;
+			transform: translateY(50px);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Darker Overlay for Text Clarity - FIXED to show images */
+	.slider-info.banner-view {
+		position: relative;
+		z-index: 0;
+	}
+
+	.slider-info.banner-view::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.4);
+		/* The dark overlay */
+		z-index: -1;
+	}
+
+	/* Glassmorphic Navigation Arrows */
+	.owl-one.owl-theme .owl-nav [class*="owl-"] {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background: rgba(255, 255, 255, 0.15) !important;
+		backdrop-filter: blur(10px);
+		color: #fff !important;
+		width: 55px;
+		height: 55px;
+		line-height: 55px;
+		border-radius: 50% !important;
+		transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+		border: 1px solid rgba(255, 255, 255, 0.2) !important;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.owl-one.owl-theme .owl-nav .owl-prev {
+		left: 40px;
+	}
+
+	.owl-one.owl-theme .owl-nav .owl-next {
+		right: 40px;
+	}
+
+	.owl-one.owl-theme .owl-nav [class*="owl-"]:hover {
+		background: #00bcd4 !important;
+		border-color: #00bcd4 !important;
+		transform: translateY(-50%) scale(1.1);
+		box-shadow: 0 15px 30px rgba(0, 188, 212, 0.3);
+	}
+
+	.owl-one.owl-theme .owl-nav .owl-prev, .owl-one.owl-theme .owl-nav .owl-next {
+		font-size: 0 !important; /* Hide default Owl text */
+	}
+	.owl-one.owl-theme .owl-nav .owl-prev:before { content: "\f104"; font-family: FontAwesome; font-size: 28px; font-weight: 700; margin-left: -2px; }
+	.owl-one.owl-theme .owl-nav .owl-next:before { content: "\f105"; font-family: FontAwesome; font-size: 28px; font-weight: 700; margin-right: -2px; }
+
+	.banner-info-bg h5 {
+		font-size: 4.5rem !important;
+		margin-bottom: 20px;
+		letter-spacing: -1px;
+	}
+
+	@media (max-width: 768px) {
+		.banner-info-bg h5 {
+			font-size: 2.5rem !important;
+		}
+
+		.owl-one.owl-theme .owl-nav {
+			display: none;
+		}
+	}
+</style>
+
+<section class="w3l-main-slider" id="home">
+	<div class="companies20-content">
+		<div class="owl-one owl-carousel owl-theme">
+			<div class="item">
+				<li>
+					<div class="slider-info banner-view bg bg2">
+						<div class="banner-info">
+							<div class="container text-center">
+								<div class="banner-info-bg mx-auto">
+									<h5>Welcome To our Online System</h5>
+									<p class="text-white opacity-75 mt-3"
+										style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Experience seamless
+										ration management with our digital-first approach.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</div>
+			<div class="item">
+				<li>
+					<div class="slider-info banner-view banner-top1 bg bg2">
+						<div class="banner-info">
+							<div class="container text-center">
+								<div class="banner-info-bg mx-auto">
+									<h5>Make Your Card Here</h5>
+									<a class="btn btn-secondary btn-theme2 mt-md-5 mt-4"
+										href="{% url 'AddRationCard' %}"
+										style="padding: 15px 40px; font-size: 1.1rem; border-radius: 30px; border:none; background: #00bcd4; font-weight: 700;">Get
+										Started Now</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</div>
+			<div class="item">
+				<li>
+					<div class="slider-info banner-view banner-top2 bg bg2">
+						<div class="banner-info">
+							<div class="container text-center">
+								<div class="banner-info-bg mx-auto">
+									<h5>Organic Foods In Kick</h5>
+									<p class="text-white opacity-75 mt-3" style="font-size: 1.2rem;">Quality assurance
+										and transparency in every distribution.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</div>
+			<div class="item">
+				<li>
+					<div class="slider-info banner-view banner-top3 bg bg2">
+						<div class="banner-info">
+							<div class="container text-center">
+								<div class="banner-info-bg mx-auto">
+									<h5>100% Transparency</h5>
+									<p class="text-white opacity-75 mt-3" style="font-size: 1.2rem;">Tracing every
+										transaction with trust and efficiency.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</div>
+		</div>
+	</div>
+
+	<script src="{% static 'assets/js/owl.carousel.js' %}"></script>
+	<script>
+		$(document).ready(function () {
+			$('.owl-one').owlCarousel({
+				loop: true,
+				margin: 0,
+				nav: true,
+				dots: false,
+				autoplay: true,
+				autoplayTimeout: 6000,
+				smartSpeed: 1200,
+				autoplayHoverPause: true,
+				responsive: {
+					0: { items: 1, nav: false },
+					768: { items: 1, nav: true },
+					1000: { items: 1, nav: true }
+				}
+			})
+		})
+	</script>
+</section>
+<!-- banner slider end -->
+
+
+<!-- MODERN SERVICES SECTION -->
+<style>
+    .service-card {
+        background: #fff;
+        padding: 40px 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        border: 1px solid #f0f0f0;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    .service-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 30px 60px rgba(0, 188, 212, 0.15);
+        border-color: rgba(0, 188, 212, 0.2);
+    }
+    .service-card .stat-circle {
+        width: 80px;
+        height: 80px;
+        background: rgba(0, 188, 212, 0.05);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+        transition: 0.5s;
+    }
+    .service-card:hover .stat-circle {
+        background: #00bcd4;
+        transform: rotateY(360deg);
+    }
+    .service-card h4 {
+        font-size: 36px;
+        font-weight: 900;
+        color: #111;
+        margin-bottom: 10px;
+    }
+    .service-card h6 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #00bcd4;
+        margin-bottom: 15px;
+    }
+    .service-card p {
+        color: #777;
+        line-height: 1.8;
+    }
+</style>
+
+<section class="w3l-index6 py-5" id="service">
+	<div class="container py-lg-5">
+		<div class="heading text-center mx-auto mb-5" style="max-width: 700px;">
+			<h6 style="color: #00bcd4; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Core Expertise</h6>
+			<h3 class="head mt-2" style="font-weight: 800; font-size: 42px;">We Handle Everything For You</h3>
+			<p class="my-3 opacity-75">Our Rationcard Management System provides a fast, secure, and transparent ecosystem for digital distribution.</p>
+		</div>
+		<div class="row pt-4">
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="service-card">
+					<div class="stat-circle">
+						<h4 style="margin:0; color: #00bcd4;">40</h4>
+					</div>
+					<h6>Years Experience</h6>
+					<p>Decades of trust and expertise in building robust administrative systems that serve millions with reliability and precision.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="service-card">
+					<div class="stat-circle">
+						<h4 style="margin:0; color: #00bcd4;">30</h4>
+					</div>
+					<h6>Tech Specialists</h6>
+					<p>Our dedicated team of architects and engineers ensure the system remains cutting-edge, secure, and always accessible.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-4">
+				<div class="service-card">
+					<div class="stat-circle">
+						<h4 style="margin:0; color: #00bcd4;">15</h4>
+					</div>
+					<h6>Global Recognition</h6>
+					<p>Award-winning architecture recognized globally for transparency, efficiency, and social impact in digital governance.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- customers4 block -->
+<section class="w3l-customers-4" id="testimonials">
+	<div id="customers4-block" class="py-5">
+		<div class="container py-md-3">
+
+
+
+
+			<div id="customerhnyCarousel" class="carousel slide" data-ride="carousel">
+
+
+				<!-- Carousel items -->
+				<div class="carousel-inner pb-5 mb-md-5 pt-md-5">
+					<div class="carousel-item active">
+						<div class="section-title">
+							<div class="item-top">
+								<div class="item text-center">
+									<p class="mb-2"
+										style="color: rgba(255,255,255,0.7); font-weight: 600; text-transform: uppercase; letter-spacing: 3px; font-size: 12px;">
+										Developed By</p>
+									<div class="imgTitle mx-auto"
+										style="width: 150px; height: 150px; border: 4px solid #fff; border-radius: 50%; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.4); transition: 0.4s;">
+										<img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=400&h=400"
+											class="img-fluid" alt="Manthan Mangaroliya" />
+									</div>
+									<h4 class="mt-3" style="font-weight: 800; color: #00bcd4; letter-spacing: 1px;">
+										Manthan Mangaroliya</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+
+
+			</div>
+		</div>
+
+
+</section>
+<!-- <div class="products-4" id="gallery">
+	Products4 block
+	<div id="products4-block" class="text-center">
+		<div class="container">
+			<div class="heading text-center mx-auto mb-5">
+				<h3 class="head">What We Do</h3>
+				<p class="my-3 head"> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+					Curae;
+					Nulla mollis dapibus nunc, ut rhoncus
+					turpis sodales quis. Integer sit amet mattis quam.</p>
+			</div>
+			<input id="tab1" type="radio" name="tabs" checked>
+			<label class="tabtle" for="tab1">All</label>
+
+			<input id="tab2" type="radio" name="tabs">
+			<label class="tabtle" for="tab2">Store</label>
+
+			<input id="tab3" type="radio" name="tabs">
+			<label class="tabtle" for="tab3">Grain</label>
+
+			<input id="tab4" type="radio" name="tabs">
+			<label class="tabtle" for="tab4">Rice</label>
+
+			<section id="content1" class="tab-content text-left">
+				<div class="d-grid grid-col-3">
+					<div class="product"> 
+							
+							<figure>
+								<img src="assets/images/g1.jpg" class="img-responsive" alt="" />
+							</figure>
+						
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g2.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="assets/images/g2.jpg" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g3.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="assets/images/g3.jpg" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g4.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g4.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g5.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g5.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g6.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g6.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+
+
+				</div>
+			</section>
+
+			<section id="content2" class="tab-content text-left">
+				<div class="d-grid grid-col-3">
+					<div class="product">
+						<a href="{% static 'assets/images/g7.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g7.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g8.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g8.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g1.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g1.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g2.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g2.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g3.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g3.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g4.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g4.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+				</div>
+			</section>
+
+			<section id="content3" class="tab-content text-left">
+				<div class="d-grid grid-col-3">
+					<div class="product">
+						<a href="{% static 'assets/images/g5.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g5.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g6.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g6.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g7.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g7.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+				</div>
+			</section>
+
+			<section id="content4" class="tab-content text-left">
+				<div class="d-grid grid-col-3">
+					<div class="product">
+						<a href="{% static 'assets/images/g8.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g8.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+					<div class="product">
+						<a href="{% static 'assets/images/g1.jpg' %}" data-lightbox="example-set"
+							data-title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam architecto, ex veritatis">
+							<figure>
+								<img src="{% static 'assets/images/g1.jpg' %}" class="img-responsive" alt="" />
+							</figure>
+						</a>
+
+					</div>
+				</div>
+			</section>
+		</div>
+	</div> -->
+<!-- Products4 block -->
+</div>
+<script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'assets/js/lightbox-plus-jquery.min.js' %}"></script>
+<!-- MODERN FEATURES SECTION -->
+<style>
+    .feature-item {
+        background: #fff;
+        padding: 40px;
+        border-radius: 24px;
+        transition: 0.4s;
+        border: 1px solid #f5f5f5;
+        height: 100%;
+    }
+    .feature-item:hover {
+        background: #fafafa;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+        transform: scale(1.02);
+    }
+    .feature-icon-box {
+        width: 60px;
+        height: 60px;
+        background: #00bcd4;
+        color: #fff;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 25px;
+        box-shadow: 0 10px 20px rgba(0, 188, 212, 0.2);
+    }
+    .feature-item h5 {
+        font-weight: 800;
+        margin-bottom: 15px;
+        color: #111;
+    }
+    .feature-item p {
+        color: #666;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+</style>
+
+<section class="w3l-features-4 py-5" id="features" style="background: #fdfdfd;">
+	<div class="container py-lg-5">
+		<div class="heading text-center mx-auto mb-5" style="max-width: 700px;">
+			<h6 style="color: #00bcd4; font-weight: 800; text-transform: uppercase; letter-spacing: 2px;">Advanced Ecosystem</h6>
+			<h3 class="head mt-2" style="font-weight: 800; font-size: 42px;">Cutting-Edge Capabilities</h3>
+			<p class="my-3 opacity-75">Harness the power of digital innovation to streamline every aspect of ration management.</p>
+		</div>
+		<div class="row pt-4">
+			<div class="col-lg-4 col-md-6 mb-5">
+				<div class="feature-item">
+					<div class="feature-icon-box"><span class="fa fa-tachometer"></span></div>
+					<h5>Ultra-Fast Search</h5>
+					<p>Intelligent filtering and indexing that allows users to find products and details in milliseconds, ensuring a seamless journey.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-5">
+				<div class="feature-item">
+					<div class="feature-icon-box"><span class="fa fa-thumbs-up"></span></div>
+					<h5>Max Efficiency</h5>
+                    <p>Optimized inventory algorithms that prevent stockouts and automate replenishment, keeping the distribution chain flawless.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-5">
+				<div class="feature-item">
+					<div class="feature-icon-box"><span class="fa fa-shield"></span></div>
+					<h5>Secure Management</h5>
+                    <p>Encrypted data handling and multi-layer verification protocols to ensure total safety for every account and transaction.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-5">
+				<div class="feature-item">
+					<div class="feature-icon-box"><span class="fa fa-eye"></span></div>
+					<h5>Total Transparency</h5>
+                    <p>Open-audit trails and real-time tracking that provide 100% visibility into pricing, availability, and delivery timelines.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-5">
+				<div class="feature-item">
+					<div class="feature-icon-box"><span class="fa fa-mobile-phone" style="font-size: 32px;"></span></div>
+					<h5>Digital First</h5>
+                    <p>Fully responsive architecture designed for the modern smartphone era, providing a premium experience on any device.</p>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 mb-5">
+				<div class="feature-item">
+					<div class="feature-icon-box"><span class="fa fa-diamond"></span></div>
+					<h5>Premium Features</h5>
+                    <p>Priority access to distribution schedules, personalized recommendations, and expedited support for cardholders.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- <section class="w3l-news" id="news">
+	<section id="grids5-block" class="py-5">
+		<div class="container py-lg-3">
+			<div class="heading text-center mx-auto">
+				<h3 class="head">Recent posts and updates</h3>
+				<p class="my-3 head"> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+					Curae;
+					Nulla mollis dapibus nunc, ut rhoncus
+					turpis sodales quis. Integer sit amet mattis quam.</p>
+			</div>
+			<div class="grid-view">
+				<div class="row">
+					<div class="col-lg-4 col-md-6 mt-md-4 mt-4">
+						<div class="grids5-info">
+							<a href="#" class="d-block zoom"><img src="{% static 'assets/images/g7.jpg' %}" alt=""
+									class="img-fluid news-image"></a>
+							<div class="blog-info">
+								<p class="date">Mar 29, 2020</p>
+								<h4><a href="#">Organic Veggies in Your Diet</a></h4>
+
+								<p class="blog-text">Lorem ipsum dolor sit amet nostrum ad minus libero fugiat molestiae
+									ullam ipsam
+									quas unde earum...</p>
+								<a href="#" class="btn btn-news">Read More <span class="fa fa-angle-right pl-1"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 mt-md-4 mt-5">
+						<div class="grids5-info">
+							<a href="#" class="d-block zoom"><img src="{% static 'assets/images/g8.jpg' %}" alt=""
+									class="img-fluid news-image"></a>
+							<div class="blog-info">
+								<p class="date">Sep 28, 2020</p>
+								<h4><a href="#">Importance of Food Safety Training</a></h4>
+
+								<p class="blog-text">Lorem ipsum dolor sit amet nostrum ad minus libero fugiat molestiae
+									ullam ipsam
+									quas unde earum...</p>
+								<a href="#" class="btn btn-news">Read More <span class="fa fa-angle-right pl-1"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 offset-md-3 offset-lg-0 col-md-6 mt-md-4 mt-5">
+						<div class="grids5-info">
+							<a href="#" class="d-block zoom"><img src="{% static 'assets/images/g9.jpg' %}" alt=""
+									class="img-fluid news-image"></a>
+							<div class="blog-info">
+								<p class="date">Dec 28, 2020</p>
+								<h4><a href="#">Eight Tips for Healthy Eating</a></h4>
+
+								<p class="blog-text">Lorem ipsum dolor sit amet nostrum ad minus libero fugiat molestiae
+									ullam ipsam
+									quas unde earum...</p>
+								<a href="#" class="btn btn-news">Read More <span class="fa fa-angle-right pl-1"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</section> -->
+<!-- grids block 5 -->
+
+<!-- // grids block 5 -->
+{% endblock %}
